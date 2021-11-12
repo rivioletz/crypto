@@ -13,6 +13,10 @@ when 4
   crypto.dhke
 when 5
   crypto.elgamal
+when 6
+  crypto.ecc
+when 7
+  crypto.ecdh
 else
   puts "Wrong choice"
 end
