@@ -12,6 +12,10 @@ class Integer
     sqr_mul_result(multiply(square(result, modulo)), modulo)
   end
 
+  def inverse(modulo)
+    self.fast_mod(modulo-2, modulo)
+  end
+
   def square(arr, modulo)
     puts
     puts "Square:"
