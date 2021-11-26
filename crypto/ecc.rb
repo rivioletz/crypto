@@ -63,7 +63,7 @@ class Ecc
     x3 = (s**2 - self.point.add_x(point2)) % modulo
     y3 = (s*(self.point.x-x3)-self.point.y) % modulo
     puts "x#{3.subscript} = s#{2.superscript} - x#{1.subscript} - x#{2.subscript} (mod #{modulo})"
-    puts "   = #{s}#{2.superscript} - x#{1.subscript} - x#{2.subscript} (mod #{modulo})"
+    puts "   = #{s}#{2.superscript} - #{self.point.x} - #{point2.x} (mod #{modulo})"
     puts "   = #{s**2} - #{self.point.add_x(point2)} (mod #{modulo})"
     puts "   = #{s**2} - #{self.point.add_x(point2)} (mod #{modulo})"
     puts "   ≡ #{x3} (mod #{modulo})"

@@ -15,12 +15,12 @@ class Point
   end
 
   def add_x(point)
-    return nil if self.x == point.x # P+Q = Infinite if Xp = Xq
+    #return nil if self.x == point.x # P+Q = Infinite if Xp = Xq
     self.x + point.x
   end
 
   def add_y(point)
-    return nil if self.equals(point) && self.y == 0 # P+P = Infinite if Yp = 0
+    #return nil if self.equals(point) && self.y == 0 # P+P = Infinite if Yp = 0
     self.y + point.y
   end
 
