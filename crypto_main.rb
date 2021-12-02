@@ -17,6 +17,8 @@ when 6
   crypto.ecc
 when 7
   crypto.ecdh
+when 8
+  crypto.ds_rsa
 else
   puts "Wrong choice"
 end

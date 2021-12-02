@@ -8,6 +8,7 @@ class CryptoMenu
     menu_arr << "ElGamal Encryption"
     menu_arr << "Elliptic Curve Encryption"
     menu_arr << "Elliptic Curve Diffie-Hellman"
+    menu_arr << "RSA Digital Signature"
     menu_arr.each_with_index do |m, i|
       puts "#{i+1}. #{m}"
     end
@@ -170,5 +171,22 @@ class CryptoMenu
     ecdh.encrypt
     puts
     # ecdh.decrypt
+  end
+
+  def ds_rsa
+    require "./crypto/digital_signature.rb"
+    puts "RSA Digital Signature"
+    puts "---------------------"
+    puts "Enter Base:"
+    b = gets.chomp
+    puts "Enter Exponent:"
+    e = gets.chomp
+    puts "Enter modulo:"
+    m = gets.chomp
+    puts "Enter Signature:"
+    s = gets.chomp
+    puts
+    ds = DigitalSignature.new(b,e,m)
+    ds.valid_rsa?(s)
   end
 end
