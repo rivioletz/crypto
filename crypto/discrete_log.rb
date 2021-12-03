@@ -23,6 +23,12 @@ class DiscreteLog
     DiscreteLog.new(base, self.exponent, self.modulo)
   end
 
+  def basic_mod
+    result = self.base % self.modulo
+    puts "#{self.base} (mod #{self.modulo}) ≡ #{result}"
+    return result
+  end
+
   def to_s
     return "#{self.base}#{self.exponent.superscript} (mod #{self.modulo})"
   end

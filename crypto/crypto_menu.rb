@@ -9,6 +9,8 @@ class CryptoMenu
     menu_arr << "Elliptic Curve Encryption"
     menu_arr << "Elliptic Curve Diffie-Hellman"
     menu_arr << "RSA Digital Signature"
+    menu_arr << "ElGamal Digital Signature"
+    menu_arr << "ECC Digital Signature"
     menu_arr.each_with_index do |m, i|
       puts "#{i+1}. #{m}"
     end
@@ -188,5 +190,56 @@ class CryptoMenu
     puts
     ds = DigitalSignature.new(b,e,m)
     ds.valid_rsa?(s)
+  end
+
+  def ds_elgamal
+    require "./crypto/digital_signature.rb"
+    puts "ElGamal Digital Signature"
+    puts "---------------------"
+    puts "Enter Alpha:"
+    a = gets.chomp
+    puts "Enter Beta:"
+    b = gets.chomp
+    puts "Enter modulo:"
+    p = gets.chomp
+    puts "Enter Plaintext:"
+    x = gets.chomp
+    puts "Enter Ephemeral:"
+    r = gets.chomp
+    puts "Enter Signature:"
+    s = gets.chomp
+    puts
+    ds = DigitalSignature.valid_elgamal?(p.to_i, a.to_i, b.to_i, x.to_i, r.to_i, s.to_i)
+  end
+
+  def ds_ecc
+    require "./crypto/digital_signature.rb"
+    require "./class/point.rb"
+    puts "ECC Digital Signature"
+    puts "---------------------"
+    puts "Enter modulo > 3:"
+    p = gets.chomp
+    puts "Enter coordinate Ax:"
+    ax = gets.chomp
+    puts "Enter coordinate Ay:"
+    ay = gets.chomp
+    puts "Enter coordinate Bx:"
+    bx = gets.chomp
+    puts "Enter coordinate By:"
+    by = gets.chomp
+    puts "Enter value a:"
+    a = gets.chomp
+    puts "Enter value b:"
+    b = gets.chomp
+    puts "Enter value q:"
+    q = gets.chomp
+    puts "Enter Plaintext:"
+    x = gets.chomp
+    puts "Enter Ephemeral:"
+    r = gets.chomp
+    puts "Enter Signature:"
+    s = gets.chomp
+    puts
+    ds = DigitalSignature.valid_ecc?(p.to_i, a.to_i, b.to_i, q.to_i, Point.new(ax.to_i, ay.to_i), Point.new(bx.to_i, by.to_i), x.to_i, r.to_i, s.to_i)
   end
 end

@@ -82,6 +82,21 @@ class Ecc
     return point_add
   end
 
+  def multiply(num = nil)
+    if num.nil?
+      compute_points
+    else
+      p = self.point
+
+      (2..num).each do
+        p = self.add(p)
+        puts
+      end
+
+      return p
+    end
+  end
+
   def compute_points
     arr = []
     p = self.point
